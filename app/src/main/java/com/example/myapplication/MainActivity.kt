@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
         spCurrency1 = findViewById(R.id.spCurrency1)
         spCurrency2 = findViewById(R.id.spCurrency2)
-
+        Log.v("TAG","TEXT1 $editText1")
         val currencies = listOf("USD","VND","EUR","GBP","JPY")
 
         val adapter: ArrayAdapter<String> = ArrayAdapter(
@@ -71,6 +72,9 @@ class MainActivity : AppCompatActivity() {
 
             override fun afterTextChanged(s: Editable?) {
                 convertCurrency(true)
+                if (editText1.text.isNullOrEmpty()) {
+                    editText2.setText("0.0")
+                }
             }
         }
         editText1.addTextChangedListener(textWatcher1)
@@ -81,6 +85,9 @@ class MainActivity : AppCompatActivity() {
 
             override fun afterTextChanged(s: Editable?) {
                 convertCurrency(false)
+                if (editText2.text.isNullOrEmpty()) {
+                    editText1.setText("0.0")
+                }
             }
         }
         editText2.addTextChangedListener(textWatcher2)
