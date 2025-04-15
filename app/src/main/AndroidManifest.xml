@@ -19,6 +19,10 @@
         </activity>
         <activity
             android:name=".MainActivityAddStudent"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".MainActivityRecyclerView"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,6 +1,6 @@
 package com.example.myapplication
 
-data class StudentModel(
+data class ItemModel(
     val avatarResId: Int,
     val hoten: String,
     val mssv: String,
